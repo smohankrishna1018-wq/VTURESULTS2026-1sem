@@ -1,21 +1,26 @@
 <html>
 <head>
-<title>VTU RESULT 2026</title>
-
+<title>VTU Fun Result Checker</title>
 <style>
 body{
 font-family: Arial;
-background:#f2f2f2;
+background:#f4f6f9;
 text-align:center;
-padding-top:100px;
+}
+
+.header{
+background:#003366;
+color:white;
+padding:15px;
+font-size:22px;
 }
 
 .container{
 background:white;
-width:380px;
-margin:auto;
-padding:30px;
-border-radius:10px;
+width:350px;
+margin:80px auto;
+padding:25px;
+border-radius:8px;
 box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
@@ -23,37 +28,46 @@ input{
 width:90%;
 padding:10px;
 margin:10px;
-font-size:16px;
 }
 
 button{
 padding:10px 20px;
-font-size:16px;
-background:#d32f2f;
+background:#003366;
 color:white;
 border:none;
-cursor:pointer;
+border-radius:4px;
 }
 
-.captcha-box{
-font-size:22px;
-font-weight:bold;
-letter-spacing:4px;
-background:#eee;
-padding:10px;
-display:inline-block;
-margin:10px;
-}
-
-.loading{
+.result{
 font-size:28px;
-font-weight:bold;
+color:red;
+margin-top:20px;
 }
 </style>
+</head>
+
+<body>
+
+<div class="header">
+VTU Fun Result Portal 2026
+</div>
+
+<div class="container">
+<h3>Enter Details</h3>
+
+<input type="text" placeholder="Enter USN"><br>
+<input type="text" placeholder="Enter Captcha"><br>
+
+<button onclick="showResult()">Submit</button>
+
+<div id="result"></div>
+</div>
 
 <script>
+function showResult(){
+document.getElementById("result").innerHTML="RESULT: FAIL 😂 <br> Just kidding!";
+}
+</script>
 
-function generateCaptcha(){
-let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-let captcha="";
-for(let i=0;…
+</body>
+</html>
