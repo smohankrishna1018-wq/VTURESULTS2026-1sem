@@ -1,27 +1,22 @@
 <html>
 <head>
 <title>VTU Fun Result Checker</title>
+
 <style>
 body{
 font-family: Arial;
-background:#f4f6f9;
 text-align:center;
+background:#f2f2f2;
+margin-top:100px;
 }
 
-.header{
-background:#003366;
-color:white;
-padding:15px;
-font-size:22px;
-}
-
-.container{
+.box{
 background:white;
-width:350px;
-margin:80px auto;
-padding:25px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+padding:30px;
+width:320px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 0 10px gray;
 }
 
 input{
@@ -35,38 +30,53 @@ padding:10px 20px;
 background:#003366;
 color:white;
 border:none;
-border-radius:4px;
+border-radius:5px;
 }
 
-.result{
-font-size:28px;
-color:red;
-margin-top:20px;
+.captcha{
+font-size:22px;
+font-weight:bold;
+letter-spacing:5px;
+background:#eee;
+display:inline-block;
+padding:8px 15px;
+margin:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-VTU Fun Result Portal 2026
-</div>
-
-<div class="container">
-<h3>Enter Details</h3>
+<div class="box">
+<h2>VTU Result 2026</h2>
 
 <input type="text" placeholder="Enter USN"><br>
-<input type="text" placeholder="Enter Captcha"><br>
 
-<button onclick="showResult()">Submit</button>
+<div class="captcha" id="captcha"></div><br>
 
-<div id="result"></div>
+<input type="text" id="captchaInput" placeholder="Enter Captcha"><br>
+
+<button onclick="checkCaptcha()">Submit</button>
+
+<p id="result"></p>
 </div>
 
 <script>
-function showResult(){
-document.getElementById("result").innerHTML="RESULT: FAIL 😂 <br> Just kidding!";
+
+let captchaNumber = Math.floor(1000 + Math.random()*9000);
+document.getElementById("captcha").innerText = captchaNumber;
+
+function checkCaptcha(){
+let userCaptcha = document.getElementById("captchaInput").value;
+
+if(userCaptcha == captchaNumber){
+document.body.innerHTML="<h1 style='color:red;margin-top:200px'>RESULT: FAIL 😂<br>No need to check!</h1>";
+}else{
+document.getElementById("result").innerText="Wrong captcha. Try again.";
 }
+
+}
+
 </script>
 
 </body>
